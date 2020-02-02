@@ -66,6 +66,7 @@ p {
 }
 
 .message {
+  height: 18px;
   margin-bottom: 8px;
 
   &.error-message {
@@ -95,7 +96,7 @@ select {
   background-color: $lightgrey;
   appearance: none;
   border-radius: 0;
-  border: 0;
+  border: 2px solid transparent;
 
   &::placeholder {
     color: $grey;
@@ -108,8 +109,8 @@ select {
   background-size: 12px 8px;
   background-repeat: no-repeat;
 
-  &:invalid {
-    color: $grey;
+  &:required {
+    color: $grey !important;
   }
 }
 
@@ -129,6 +130,11 @@ button {
     font-size: 67%;
     margin-left: 4px;
     vertical-align: middle;
+  }
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
   }
 }
 
