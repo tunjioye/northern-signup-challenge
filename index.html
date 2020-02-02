@@ -7,42 +7,48 @@
     <meta charset="utf-8">
     <title>Internship Signup Form</title>
     <meta name="description" content="This is a solution to Northern Frontend Challenge">
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <link rel="stylesheet" href="./assets/css/index.css">
   </head>
   <body>
     <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+      <p>You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <section class="container">
       <h1>INTERNSHIP SIGNUP FORM</h1>
-      <p>Prepare for your career with a Project Management, Web-Development, Graphic Design, or a Digital Marketing Internship at Northern.</p>
-      <br />
-      <form id="signup-form" method="get" action="">
-        <div class="form-group form-group-inline">
-          <div class="input-group">
-            <div id="email-message" class="message"></div>
-            <input id="email" type="email" name="email" placeholder="Your Email Address *" />
-          </div>
-          <div class="input-group">
-            <div id="interest-message" class="message"></div>
-            <select id="interest" name="interest">
-              <option value="">Your Interests</option>
-              <option value="Development">Development</option>
-              <option value="Design">Design</option>
-              <option value="Marketing">Marketing</option>
-            </select>
-          </div>
-        </div>
+
+      <div id="form-wrapper">
+        <p>Prepare for your career with a Project Management, Web-Development, Graphic Design, or a Digital Marketing Internship at Northern.</p>
         <br />
-        <button id="submit-button" type="submit">
-          Sign Up Now <small class="right-triangle">&rtrif;</small>
-        </button>
-      </form>
+        <form id="signup-form" method="get" action="">
+          <div class="form-group form-group-inline">
+            <div class="input-group">
+              <div id="email-message" class="message"></div>
+              <input id="email" type="email" name="email" placeholder="Your Email Address *" />
+            </div>
+            <div class="input-group">
+              <div id="interest-message" class="message"></div>
+              <select id="interest" name="interest">
+                <option value="">Your Interests</option>
+                <option value="Development">Development</option>
+                <option value="Design">Design</option>
+                <option value="Marketing">Marketing</option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <button id="submit-button" type="submit">
+            Sign Up Now <small class="right-triangle">&rtrif;</small>
+          </button>
+        </form>
+      </div>
+
+      <div id="success-message" class="d-hide">
+        <h4 class="thank-you-message">Thanks for your interest!</h4>
+        <p>We will review your application and contact your after additional information should your background and experience meet the requirements of one of our openings.</p>
+      </div>
     </section>
 
-    <script src="./assets/js/index.js" async defer></script>
+    <script src="./assets/js/index.js" type="text/javascript"></script>
   </body>
 </html>

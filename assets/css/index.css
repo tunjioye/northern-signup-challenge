@@ -1,3 +1,7 @@
+.d-hide {
+  display: none;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -8,9 +12,17 @@ body {
   font-weight: 300;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: Montserrat, sans-serif;
   font-weight: bold;
+}
+
+h1 {
   font-size: 65px;
   line-height: 2.25;
 }
@@ -174,4 +186,12 @@ input,
 select,
 button {
   outline: none;
+}
+
+h4.thank-you-message,
+.thank-you-message {
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  font-size: 35px;
+  margin: auto;
 }

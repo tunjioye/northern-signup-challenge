@@ -2,6 +2,8 @@ var signupForm = document.getElementById('signup-form');
 var email = document.getElementById('email');
 var interest = document.getElementById('interest');
 var submitButton = document.getElementById('submit-button');
+var formWrapper = document.getElementById('form-wrapper');
+var successMessage = document.getElementById('success-message');
 
 email.addEventListener('keyup', validateEmailField);
 interest.addEventListener('change', validateInterestField);
@@ -14,6 +16,8 @@ signupForm.addEventListener('submit', function processForm(e) {
     submitButton.innerHTML = 'submitting...';
     setTimeout(() => {
       submitButton.innerHTML = previousInnerHTML;
+      formWrapper.classList.add('d-hide');
+      successMessage.classList.remove('d-hide');
     }, 2000);
   }
 });
