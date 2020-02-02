@@ -5,10 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Internship Signup Form</title>
     <meta name="description" content="This is a solution to Northern Frontend Challenge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <link rel="stylesheet" href="assets/css/index.css">
   </head>
   <body>
@@ -16,7 +16,24 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <section class="container">
       <h1>INTERNSHIP SIGNUP FORM</h1>
+      <p>Prepare for your career with a Project Management, Web-Development, Graphic Design, or a Digital Marketing Internship at Northern.</p>
+      <br />
+      <form method="get" action="">
+        <div class="form-group form-group-inline">
+          <input type="email" placeholder="Your Email Address *" required>
+          <select required>
+            <option value="">Your Interests</option>
+            <option value="Development">Development</option>
+            <option value="Design">Design</option>
+            <option value="Marketing">Marketing</option>
+          </select>
+        </div>
+        <br />
+        <button type="submit">Sign Up Now <small class="right-triangle">&rtrif;</small></button>
+      </form>
+    </section>
 
     <script src="assets/js/index.js" async defer></script>
   </body>

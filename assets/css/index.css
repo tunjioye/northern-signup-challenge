@@ -1,1 +1,139 @@
-/* No CSS */
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.45;
+  background-color: #282828;
+  color: #FFFFFF;
+}
+
+h1 {
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  font-size: 65px;
+  line-height: 2.25;
+}
+
+h1:after {
+  content: '';
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  width: 300px;
+  height: 10px;
+  background-color: #D02035;
+}
+
+p {
+  font-family: Merriweather, serif;
+  font-size: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.form-group-inline {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.form-group-inline > * {
+  -webkit-box-flex: 50%;
+      -ms-flex: 50%;
+          flex: 50%;
+}
+
+.form-group-inline > *:first-child {
+  margin-right: 8px;
+}
+
+.form-group-inline > *:last-child {
+  margin-left: 8px;
+}
+
+input,
+select {
+  font-family: Merriweather, serif;
+  font-style: italic;
+  font-size: 16px;
+  padding: 20px;
+  display: inline-block;
+  width: 100%;
+  color: #282828;
+  background-color: #e7e7e7;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0;
+  border: 0;
+}
+
+input::-webkit-input-placeholder,
+select::-webkit-input-placeholder {
+  color: #797979;
+}
+
+input:-ms-input-placeholder,
+select:-ms-input-placeholder {
+  color: #797979;
+}
+
+input::-ms-input-placeholder,
+select::-ms-input-placeholder {
+  color: #797979;
+}
+
+input::placeholder,
+select::placeholder {
+  color: #797979;
+}
+
+select {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_triangle.svg/540px-Black_triangle.svg.png");
+  background-position: right 20px center;
+  background-size: 12px 8px;
+  background-repeat: no-repeat;
+}
+
+select:required:invalid {
+  color: #797979;
+}
+
+button {
+  background-color: #D02035;
+  border: 0;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-family: Merriweather, serif;
+  font-size: 20px;
+  font-style: bold;
+  padding: 16px;
+  text-align: center;
+  width: 100%;
+}
+
+button .right-triangle {
+  font-size: 67%;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+input,
+select,
+button {
+  outline: none;
+}
