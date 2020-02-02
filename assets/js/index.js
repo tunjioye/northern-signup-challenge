@@ -1,9 +1,7 @@
 var signupForm = document.getElementById('signup-form');
 var email = document.getElementById('email');
 var interest = document.getElementById('interest');
-var submitButton = document.getElementById('submit-button');
-var formWrapper = document.getElementById('form-wrapper');
-var successMessage = document.getElementById('success-message');
+var APPLICATION_SUBMITTED = 'application_submitted';
 
 email.addEventListener('keyup', validateEmailField);
 interest.addEventListener('change', validateInterestField);
@@ -11,14 +9,10 @@ interest.addEventListener('change', validateInterestField);
 signupForm.addEventListener('submit', function processForm(e) {
   e.preventDefault();
 
-  if (validateEmailField() || validateInterestField()) {
-    var previousInnerHTML = submitButton.innerHTML;
-    submitButton.innerHTML = 'submitting...';
-    setTimeout(() => {
-      submitButton.innerHTML = previousInnerHTML;
-      formWrapper.classList.add('d-hide');
-      successMessage.classList.remove('d-hide');
-    }, 2000);
+  if (localStorage.getItem(APPLICATION_SUBMITTED)) {
+    window.alert('You can only submit an application once!')
+  } else if (validateEmailField() || validateInterestField()) {
+    submitApplication(APPLICATION_SUBMITTED);
   }
 });
 
@@ -49,12 +43,28 @@ function validateInterestField() {
   }
 }
 
-function addErrorMessage(errorMessage, eleement) {
-  eleement.innerHTML = errorMessage;
-  eleement.classList.add('error-message');
+function addErrorMessage(errorMessage, element) {
+  element.innerHTML = errorMessage;
+  element.classList.add('error-message');
 }
 
-function removeErrorMessage(eleement) {
-  eleement.classList.remove('error-message');
-  eleement.innerHTML = '';
+function removeErrorMessage(element) {
+  element.classList.remove('error-message');
+  element.innerHTML = '';
+}
+
+function submitApplication(APPLICATION_SUBMITTED) {
+  var submitButton = document.getElementById('submit-button');
+  var formWrapper = document.getElementById('form-wrapper');
+  var successMessage = document.getElementById('success-message');
+
+  var previousInnerHTML = submitButton.innerHTML;
+  submitButton.innerHTML = 'submitting...';
+
+  setTimeout(() => {
+    submitButton.innerHTML = previousInnerHTML;
+    formWrapper.classList.add('d-hide');
+    successMessage.classList.remove('d-hide');
+    localStorage.setItem(APPLICATION_SUBMITTED, true);
+  }, 2000);
 }
