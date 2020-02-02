@@ -3,9 +3,11 @@ var email = document.getElementById('email');
 var interest = document.getElementById('interest');
 var APPLICATION_SUBMITTED = 'application_submitted';
 
+// validate input change
 email.addEventListener('keyup', validateEmailField);
 interest.addEventListener('change', validateInterestField);
 
+// validation on form submission
 signupForm.addEventListener('submit', function processForm(e) {
   e.preventDefault();
 
@@ -16,6 +18,11 @@ signupForm.addEventListener('submit', function processForm(e) {
   }
 });
 
+/**
+ * validates email field
+ *
+ * @returns Boolean
+ */
 function validateEmailField() {
   var emailValue = document.getElementById('email').value || '';
   var emailMessageElement = document.getElementById('email-message');
@@ -30,6 +37,11 @@ function validateEmailField() {
   }
 }
 
+/**
+ * validates interest field
+ *
+ * @returns Boolean
+ */
 function validateInterestField() {
   var interestValue = document.getElementById('interest').value || '';
   var interestMessageElement = document.getElementById('interest-message');
@@ -43,16 +55,33 @@ function validateInterestField() {
   }
 }
 
+/**
+ * adds error message and error-message class to element
+ *
+ * @param {String} errorMessage
+ * @param {DOMElement} element
+ */
 function addErrorMessage(errorMessage, element) {
   element.innerHTML = errorMessage;
   element.classList.add('error-message');
 }
 
+
+/**
+ * removes error message and error-message class from element
+ *
+ * @param {DOMElement} element
+ */
 function removeErrorMessage(element) {
   element.classList.remove('error-message');
   element.innerHTML = '';
 }
 
+/**
+ * submits the application
+ *
+ * @param {String} APPLICATION_SUBMITTED
+ */
 function submitApplication(APPLICATION_SUBMITTED) {
   var submitButton = document.getElementById('submit-button');
   var formWrapper = document.getElementById('form-wrapper');
