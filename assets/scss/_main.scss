@@ -117,7 +117,7 @@ select {
   background-size: 12px 8px;
   background-repeat: no-repeat;
 
-  &:required {
+  &:required:invalid {
     color: $grey !important;
   }
 }

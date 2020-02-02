@@ -1,7 +1,7 @@
 var signupForm = document.getElementById('signup-form');
 var email = document.getElementById('email');
 var interest = document.getElementById('interest');
-var APPLICATION_SUBMITTED = 'application_submitted';
+var SAVED_APPLICANTS = 'saved_applicants';
 
 // validate input change
 email.addEventListener('keyup', validateEmailField);
@@ -11,10 +11,9 @@ interest.addEventListener('change', validateInterestField);
 signupForm.addEventListener('submit', function processForm(e) {
   e.preventDefault();
 
-  if (localStorage.getItem(APPLICATION_SUBMITTED)) {
-    window.alert('You can only submit an application once!')
-  } else if (validateEmailField() || validateInterestField()) {
-    submitApplication(APPLICATION_SUBMITTED);
+  if (validateEmailField() && validateInterestField()) {
+    var emailValue = document.getElementById('email').value || '';
+    submitApplication(emailValue);
   }
 });
 
@@ -82,18 +81,58 @@ function removeErrorMessage(element) {
  *
  * @param {String} APPLICATION_SUBMITTED
  */
-function submitApplication(APPLICATION_SUBMITTED) {
-  var submitButton = document.getElementById('submit-button');
-  var formWrapper = document.getElementById('form-wrapper');
-  var successMessage = document.getElementById('success-message');
+function submitApplication(emailValue) {
+  if (checkIfApplicantDoesNotExist(emailValue)) {
+    var submitButton = document.getElementById('submit-button');
+    var formWrapper = document.getElementById('form-wrapper');
+    var successMessage = document.getElementById('success-message');
 
-  var previousInnerHTML = submitButton.innerHTML;
-  submitButton.innerHTML = 'submitting...';
+    var previousInnerHTML = submitButton.innerHTML;
+    submitButton.innerHTML = 'submitting...';
 
-  setTimeout(() => {
-    submitButton.innerHTML = previousInnerHTML;
-    formWrapper.classList.add('d-hide');
-    successMessage.classList.remove('d-hide');
-    localStorage.setItem(APPLICATION_SUBMITTED, true);
-  }, 2000);
+    setTimeout(() => {
+      submitButton.innerHTML = previousInnerHTML;
+      formWrapper.classList.add('d-hide');
+      successMessage.classList.remove('d-hide');
+      saveApplicant(emailValue);
+    }, 2000);
+  } else {
+    window.alert('You can only submit an application once!');
+  }
+}
+
+/**
+ * gets saved applicants from localStorage
+ *
+ * @returns Array
+ */
+function getSavedApplicants() {
+  if (localStorage.getItem(SAVED_APPLICANTS)) {
+    return JSON.parse(localStorage.getItem(SAVED_APPLICANTS));
+  } else {
+    return [];
+  }
+}
+
+/**
+ * saves an appplicant email into localStorage SAVED_APPLICANTS
+ *
+ * @param {String} applicantEmail
+ */
+function saveApplicant(applicantEmail) {
+  var savedApplicants = getSavedApplicants();
+  savedApplicants.push(applicantEmail);
+  localStorage.setItem(SAVED_APPLICANTS, JSON.stringify(savedApplicants));
+}
+
+/**
+ * checks if applicant email does not exists in the saved applicants array and return true or false
+ *
+ * @param {String} applicantEmail
+ * @returns Boolean
+ */
+function checkIfApplicantDoesNotExist(applicantEmail) {
+  var savedApplicants = getSavedApplicants();
+  var applicantDoesNotExists = (savedApplicants.indexOf(applicantEmail) === -1);
+  return applicantDoesNotExists;
 }

@@ -151,7 +151,7 @@ select {
   background-repeat: no-repeat;
 }
 
-select:required {
+select:required:invalid {
   color: #797979 !important;
 }
 
