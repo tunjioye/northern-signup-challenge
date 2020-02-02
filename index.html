@@ -22,16 +22,22 @@
       <br />
       <form method="get" action="">
         <div class="form-group form-group-inline">
-          <input type="email" placeholder="Your Email Address *" required>
-          <select required>
-            <option value="">Your Interests</option>
-            <option value="Development">Development</option>
-            <option value="Design">Design</option>
-            <option value="Marketing">Marketing</option>
-          </select>
+          <div class="input-group">
+            <div id="email-message" class="message error-message">Please enter a valid email address.</div>
+            <input id="email" type="email" name="email" placeholder="Your Email Address *" required>
+          </div>
+          <div class="input-group">
+            <div id="interest-message" class="message error-message">Please select an interest.</div>
+            <select id="interest" required name="interest">
+              <option value="">Your Interests</option>
+              <option value="Development">Development</option>
+              <option value="Design">Design</option>
+              <option value="Marketing">Marketing</option>
+            </select>
+          </div>
         </div>
         <br />
-        <button type="submit">Sign Up Now <small class="right-triangle">&rtrif;</small></button>
+        <button id="submit-button" type="submit">Sign Up Now <small class="right-triangle">&rtrif;</small></button>
       </form>
     </section>
 

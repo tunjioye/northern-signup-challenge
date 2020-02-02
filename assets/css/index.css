@@ -4,6 +4,8 @@ body {
   line-height: 1.45;
   background-color: #282828;
   color: #FFFFFF;
+  font-family: Merriweather, serif;
+  font-weight: 300;
 }
 
 h1 {
@@ -26,6 +28,7 @@ h1:after {
 
 p {
   font-family: Merriweather, serif;
+  font-weight: 300;
   font-size: 20px;
 }
 
@@ -65,14 +68,44 @@ p {
   margin-left: 8px;
 }
 
+.input-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.message {
+  margin-bottom: 8px;
+}
+
+.message.error-message {
+  color: #FFFFFF;
+  font-family: Merriweather, serif;
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: .25px;
+  text-align: right;
+}
+
+.message.error-message + input,
+.message.error-message + select {
+  border: 2px solid #D02035;
+}
+
 input,
 select {
   font-family: Merriweather, serif;
+  font-weight: 300;
   font-style: italic;
   font-size: 16px;
-  padding: 20px;
+  padding: 18px;
   display: inline-block;
-  width: 100%;
   color: #282828;
   background-color: #e7e7e7;
   -webkit-appearance: none;
@@ -104,12 +137,12 @@ select::placeholder {
 
 select {
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_triangle.svg/540px-Black_triangle.svg.png");
-  background-position: right 20px center;
+  background-position: right 18px center;
   background-size: 12px 8px;
   background-repeat: no-repeat;
 }
 
-select:required:invalid {
+select:invalid {
   color: #797979;
 }
 
@@ -121,7 +154,7 @@ button {
   font-family: Merriweather, serif;
   font-size: 20px;
   font-style: bold;
-  padding: 16px;
+  padding: 18px;
   text-align: center;
   width: 100%;
 }
